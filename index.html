@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSP Labs</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230f0e0c'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='20' font-weight='700' fill='%231a7a6e'>P</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=Editorial+New:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #f0ede7;
+    --paper: #0f0e0c;
+    --teal: #1a7a6e;
+    --teal-light: #0d2e2b;
+    --rule: #2a2825;
+    --muted: #9e9890;
+    --warn: #d4604f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    position: relative;
+  }
+
+  /* ── SECTION BACKGROUNDS & SPACING ── */
+  .section-lede,
+  .section-problem,
+  .section-engagement,
+  .section-outcome,
+  .section-thinking,
+  .section-contact {
+    padding: 56px 0;
+  }
+
+  .section-engagement { background: #141311; }
+  .section-outcome    { background: rgba(26,122,110,0.04); }
+
+  .inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 56px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 20px;
+    margin-bottom: 48px;
+  }
+
+  .header-left .wordmark {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .header-left .tagline {
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  .header-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-align: right;
+    text-transform: uppercase;
+  }
+
+  /* ── LEDE ── */
+  .lede {
+    margin-bottom: 52px;
+  }
+
+  .lede-rule {
+    width: 32px;
+    height: 2px;
+    background: var(--teal);
+    margin-bottom: 20px;
+  }
+
+  .lede h1 {
+    font-size: 3.4rem;
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .lede h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .lede .sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .lede .byline {
+    margin-top: 1.25rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--warn);
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+
+  /* ── RULE ── */
+  hr.thin {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 44px 0;
+  }
+
+  /* ── PROBLEM BLOCK ── */
+  .problem-block {
+    margin-bottom: 52px;
+  }
+
+  .problem-block h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .problem-block p {
+    font-size: 0.985rem;
+    color: var(--muted);
+  }
+
+  .root-cause {
+    margin-top: 24px;
+    padding: 20px 24px;
+    border-left: 3px solid var(--teal);
+    border-radius: 0 6px 6px 0;
+    background: var(--teal-light);
+    font-size: 0.985rem;
+  }
+
+  .root-cause strong {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+
+  /* ── ICP BOX ── */
+  .icp-box {
+    margin-top: 28px;
+    padding: 20px 24px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.02);
+  }
+
+.icp-list {
+    list-style: none;
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.85;
+  }
+
+  .icp-list li::before {
+    content: "– ";
+    color: var(--teal);
+  }
+
+  /* ── ENGAGEMENT HEADING ── */
+  .engagement-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  .engagement-sub {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  /* ── PHASE FLOW (horizontal two-card layout) ── */
+  .phase-flow {
+    display: flex;
+    align-items: stretch;
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+
+  .phase-card {
+    flex: 1;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .phase-card-header {
+    padding: 20px 22px 16px;
+    border-bottom: 1px solid var(--rule);
+    background: #1a1916;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+  }
+
+  .phase-card:first-child .phase-card-header {
+    background: var(--teal-light);
+  }
+
+  .phase-card-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--teal);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .phase-card-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.35;
+    padding-right: 80px;
+  }
+
+  .phase-card-tag {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    padding: 2px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .phase-card-tag.neutral {
+    color: var(--muted);
+    border-color: var(--rule);
+  }
+
+  .phase-card-body {
+    padding: 18px 22px;
+    flex: 1;
+  }
+
+  .phase-card-footer {
+    padding: 10px 22px;
+    border-top: 1px solid var(--rule);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  /* ── PHASE CONNECTOR (horizontal dotted arrow) ── */
+  .phase-connector-h {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    flex-shrink: 0;
+    gap: 8px;
+    padding: 0 6px;
+  }
+
+  .phase-connector-h-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.4;
+    opacity: 0.7;
+  }
+
+  .phase-connector-h-line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .phase-connector-h-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 14px;
+    border-top: 1px dashed rgba(158,152,144,0.45);
+    top: 50%;
+  }
+
+  .phase-connector-h-arrow {
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── PHASE BULLET ITEMS (shared) ── */
+  .phase-block-items {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .phase-block-item {
+    font-size: 0.875rem;
+    color: var(--muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.55;
+  }
+
+  .phase-block-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  /* ── NOT FOR ── */
+  .not-for {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: #1a1916;
+    border-left: 2px solid var(--rule);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .icp-label,
+  .not-for-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .not-for-text {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── TRANSFORMATION TABLE ── */
+  .transform-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 52px;
+    font-size: 0.9rem;
+  }
+
+  .transform-table thead tr {
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .transform-table thead th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0 0 12px;
+    text-align: left;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .transform-table thead th:last-child {
+    color: var(--teal);
+  }
+
+  .transform-table tbody tr {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .transform-table tbody td {
+    padding: 14px 0;
+    vertical-align: top;
+  }
+
+  .transform-table td:first-child {
+    color: var(--muted);
+    width: 46%;
+    padding-right: 32px;
+  }
+
+  .transform-table td:last-child {
+    color: var(--ink);
+    font-weight: 700;
+    background: rgba(26,122,110,0.05);
+  }
+
+  .transform-table td:last-child::before {
+    content: "✓  ";
+    color: var(--teal);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+  }
+
+
+  /* ── HOW IT WORKS FLOW ── */
+  .how-it-works {
+    margin-top: 24px;
+  }
+
+  .how-it-works-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .flow-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--teal);
+    background: rgba(26,122,110,0.12);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .flow-step-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+  }
+
+  .flow-sep {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    padding: 0 12px;
+    flex-shrink: 0;
+    opacity: 0.4;
+  }
+
+  /* ── ARTICLE LIST ── */
+  .section-thinking h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  .section-thinking .sub {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .article-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 28px;
+  }
+
+  .article-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.15s;
+  }
+
+  .article-item:last-child {
+    border-bottom: none;
+  }
+
+  .article-item:hover {
+    opacity: 0.7;
+  }
+
+  .article-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+
+  .article-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .article-arrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--teal);
+    flex-shrink: 0;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    border-top: 2px solid var(--ink);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cta-left h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-left p {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .cta-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-align: right;
+    color: var(--muted);
+  }
+
+  .cta-right .cta-email {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--teal);
+    margin-bottom: 4px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: var(--paper); }
+    .page { padding: 40px 48px; }
+  }
+
+  @media (max-width: 640px) {
+    .page { padding: 40px 0; }
+    .inner { padding: 0 28px; }
+    .lede h1 { font-size: 1.85rem; }
+.phase-flow { flex-direction: column; }
+    .phase-connector-h { flex-direction: row; width: auto; height: 44px; gap: 12px; padding: 0; }
+    .phase-connector-h-label { white-space: nowrap; }
+    .phase-connector-h-line { flex: 1; }
+    .cta { flex-direction: column; gap: 24px; align-items: flex-start; }
+  }
+
+  /* ── TOP NAV ── */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,14,12,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 0 56px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .top-nav-wordmark,
+  .top-nav-link,
+  .top-nav-back {
+    font-family: 'DM Mono', monospace;
+    font-size: 90%;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .top-nav-wordmark {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .top-nav-link {
+    color: var(--muted);
+    position: relative;
+    transition: color 0.15s;
+  }
+
+  .top-nav-link:hover {
+    color: var(--ink);
+  }
+
+  .top-nav-link.active {
+    color: var(--ink);
+  }
+
+  .top-nav-link.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1.5px;
+    background: var(--teal);
+  }
+
+  #problem,
+  #engagement,
+  #outcome,
+  #contact {
+    scroll-margin-top: 68px;
+  }
+
+  .top-nav-back {
+    color: #c9a84c;
+    font-family: 'DM Mono', monospace;
+    transition: color 0.15s;
+  }
+
+  .top-nav-back:hover {
+    color: #f0ede7;
+  }
+
+  @media (max-width: 640px) {
+    .top-nav { padding: 0 28px; justify-content: space-between; }
+    .top-nav-link { display: none; }
+  }
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a class="top-nav-wordmark" href="#">PSP Labs</a>
+  <a class="top-nav-link" href="#problem">Problem</a>
+  <a class="top-nav-link" href="#engagement">Engagement</a>
+  <a class="top-nav-link" href="#outcome">Outcome</a>
+  <a class="top-nav-link" href="#contact">Contact</a>
+  <a class="top-nav-back" href="https://www.pspverse.com">My Portfolio</a>
+</nav>
+<div class="page">
+
+  <!-- LEDE -->
+  <section class="section-lede">
+    <div class="inner">
+    <div class="lede">
+      <!-- <div class="lede-rule"></div> -->
+    <h1>Your dashboards aren't failing you.<br><em>Your reporting system is.</em></h1>
+      <p class="sub">
+        PSP Labs fixes the reporting foundation underneath your dashboards. Your leadership team shouldn't have to debate which number is right before every decision.
+        <br><br>
+        Fixed scope. Two phases. No surprises.
+      </p>
+      <p class="byline">Built by someone who has had to explain why the same KPI shows different numbers in the same meeting.</p>
+    </div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="section-problem" id="problem">
+    <div class="inner">
+    <div class="problem-block">
+      <div class="section-label">The Problem</div>
+      <h2>You have data. You don't trust it.</h2>
+      <p>
+        The same KPI shows different values in different reports. Every leadership meeting starts with someone reconciling numbers before anything else gets discussed. 
+        Sometimes the ERP says one thing, the Power BI dashboard says another, and someone pulls out an Excel sheet to settle it. Decisions slow down. Or worse, they get made on the wrong data.
+      </p>
+      <div class="root-cause">
+        <strong>Root cause</strong>
+        The issue isn't your dashboards. It's the absence of a reporting foundation underneath them. Without a structured data model and defined business logic, every report is an island and every number is a question.
+      </div>
+      <div class="icp-box">
+        <div class="icp-label">Who this is for</div>
+        <ul class="icp-list">
+          <li>Operations-driven businesses — retail, supply chain, manufacturing, logistics</li>
+          <li>Running on ERP + Excel + Power BI where reporting has started to break under growth</li>
+          <li>COO or Ops Lead owns reporting but doesn't fully trust it</li>
+          <li>No dedicated internal analytics team</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- DELIVERY MODEL -->
+  <section class="section-engagement" id="engagement">
+    <div class="inner">
+      <div class="section-label">The Engagement</div>
+      <h2 class="engagement-heading">A reporting system, built right. Once.</h2>
+      <p class="engagement-sub">The assessment comes first. I won't design a system on a foundation I haven't validated.</p>
+
+      <div class="phase-flow">
+
+        <!-- Phase 01 -->
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <div class="phase-card-num">STEP 1</div>
+            <div class="phase-card-title">Assessment</div>
+            <div class="phase-card-tag">Always first</div>
+          </div>
+          <div class="phase-card-body">
+            <div class="phase-block-items">
+              <div class="phase-block-item"><span class="phase-block-dot"></span>Full data &amp; reporting audit</div>
+              <div class="phase-block-item"><span class="phase-block-dot"></span>Complexity and risk classification</div>
+              <div class="phase-block-item"><span class="phase-block-dot"></span>Clear recommendation: proceed, clean first, or stop</div>
+            </div>
+          </div>
+          <div class="phase-card-footer">1 week · Fixed scope</div>
+        </div>
+
+        <!-- Dotted arrow connector -->
+        <div class="phase-connector-h">
+          <div class="phase-connector-h-label">Assessment<br>complete</div>
+          <div class="phase-connector-h-line">
+            <span class="phase-connector-h-arrow">→</span>
+          </div>
+        </div>
+
+        <!-- Phase 02 -->
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <div class="phase-card-num">STEP 2</div>
+            <div class="phase-card-title">Implementation</div>
+            <div class="phase-card-tag neutral">Post-assessment only</div>
+          </div>
+          <div class="phase-card-body">
+            <div class="phase-block-items">
+              <div class="phase-block-item"><span class="phase-block-dot"></span>One data model that every report pulls from. No duplicates, no drift.</div>
+              <div class="phase-block-item"><span class="phase-block-dot"></span>Metrics defined once and used across every report.</div>
+              <div class="phase-block-item"><span class="phase-block-dot"></span>A reporting layer leadership can actually use. Clear definitions behind every number.</div>
+              <div class="phase-block-item"><span class="phase-block-dot"></span>30-day post-engagement support</div>
+            </div>
+          </div>
+          <div class="phase-card-footer">4–6 weeks · Scope finalized after assessment</div>
+        </div>
+
+      </div>
+
+      <div class="not-for">
+        <div class="not-for-label">Not the right fit?</div>
+        <div class="not-for-text">This isn't the right engagement if you want a dashboard without addressing the data underneath it. The process is the product. Skipping it is exactly how you end up here again.</div>
+      </div>
+
+      <!-- <div class="how-it-works">
+        <div class="how-it-works-label">How it works</div>
+        <div class="flow">
+          <div class="flow-step"><span class="flow-num">1</span><span class="flow-step-label">Assessment</span></div>
+          <span class="flow-sep">→</span>
+          <div class="flow-step"><span class="flow-num">2</span><span class="flow-step-label">Data model design</span></div>
+          <span class="flow-sep">→</span>
+          <div class="flow-step"><span class="flow-num">3</span><span class="flow-step-label">KPI framework</span></div>
+          <span class="flow-sep">→</span>
+          <div class="flow-step"><span class="flow-num">4</span><span class="flow-step-label">Dashboard build</span></div>
+          <span class="flow-sep">→</span>
+          <div class="flow-step"><span class="flow-num">5</span><span class="flow-step-label">Handoff</span></div>
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- TRANSFORMATION -->
+  <section class="section-outcome" id="outcome">
+    <div class="inner">
+    <div class="section-label">The Outcome</div>
+    <table class="transform-table">
+      <thead>
+        <tr>
+          <th>Before the engagement</th>
+          <th>After the engagement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Multiple reports, different numbers</td>
+          <td>One set of numbers and clear ownership when something changes</td>
+        </tr>
+        <tr>
+          <td>Hours spent reconciling data before every leadership meeting</td>
+          <td>COO reviews the business weekly without manual work</td>
+        </tr>
+        <tr>
+          <td>Business logic scattered across spreadsheets and people's heads</td>
+          <td>Metrics defined once, applied consistently across every report</td>
+        </tr>
+        <tr>
+          <td>Decisions delayed by uncertainty in the data</td>
+          <td>Decisions made faster with fewer debates about the numbers</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+
+  <!-- THINKING / ARTICLES -->
+  <section class="section-thinking">
+    <div class="inner">
+      <div class="section-label">Thinking</div>
+      <h2>Read how I think through this.</h2>
+      <!-- <p class="sub">The best way to evaluate someone is to see how they think through a problem.</p> -->
+      <div class="article-list">
+        <a class="article-item" href="#">
+          <div>
+            <div class="article-title">Why your Power BI numbers don't match your ERP</div>
+            <div class="article-meta">Point of View</div>
+          </div>
+          <span class="article-arrow">→</span>
+        </a>
+        <a class="article-item" href="#">
+          <div>
+            <div class="article-title">What I actually look at before I trust a reporting system</div>
+            <div class="article-meta">Process</div>
+          </div>
+          <span class="article-arrow">→</span>
+        </a>
+        <a class="article-item" href="#">
+          <div>
+            <div class="article-title">How a North Vancouver retailer stopped reconciling numbers before every leadership meeting</div>
+            <div class="article-meta">Case Study</div>
+          </div>
+          <span class="article-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-contact" id="contact">
+    <div class="inner">
+    <div class="cta">
+      <div class="cta-left">
+        <h2>Start with the assessment.</h2>
+        <p>One week. You'll know exactly what's broken, what's not, and whether this is even worth fixing.</p>
+      </div>
+      <div class="cta-right">
+        <span class="cta-email">hello@psplabs.com</span>
+      </div>
+    </div>
+    </div>
+  </section>
+
+</div>
+<script>
+  const sections = [
+    { id: 'problem',    link: document.querySelector('.top-nav-link[href="#problem"]') },
+    { id: 'engagement', link: document.querySelector('.top-nav-link[href="#engagement"]') },
+    { id: 'outcome',    link: document.querySelector('.top-nav-link[href="#outcome"]') },
+    { id: 'contact',    link: document.querySelector('.top-nav-link[href="#contact"]') },
+  ];
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const match = sections.find(s => s.id === entry.target.id);
+      if (!match) return;
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.top-nav-link').forEach(a => a.classList.remove('active'));
+        match.link && match.link.classList.add('active');
+      }
+    });
+  }, {
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0,
+  });
+
+  sections.forEach(({ id }) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>
+</body>
+</html>
