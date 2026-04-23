@@ -644,6 +644,173 @@
     text-underline-offset: 3px;
   }
 
+  /* ── ARTICLE MODAL ── */
+  #modal-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: var(--teal);
+    border-radius: 8px 8px 0 0;
+    transition: width 0.08s ease;
+  }
+
+  .modal-body > p:first-of-type {
+    color: var(--ink);
+    font-size: 1.02rem;
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .modal-endmark {
+    text-align: center;
+    color: var(--teal);
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    margin-top: 36px;
+    opacity: 0.5;
+  }
+
+  .modal-author-footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(10,9,8,0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px 24px;
+    overflow-y: auto;
+  }
+
+  .modal-overlay.open {
+    display: flex;
+  }
+
+  .modal-box {
+    background: #141311;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    max-width: 1080px;
+    width: 100%;
+    padding: 48px 52px;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    font-family: 'DM Mono', monospace;
+    font-size: 18px;
+    color: var(--muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px 8px;
+    transition: color 0.15s;
+  }
+
+  .modal-close:hover { color: var(--ink); }
+
+  .modal-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+
+  .modal-body h1 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    margin-bottom: 28px;
+  }
+
+  .modal-body h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 8px;
+    margin-bottom: 10px;
+  }
+
+  .modal-body blockquote {
+    margin: 12px 0 14px 0;
+    padding: 10px 16px;
+    border-left: 3px solid var(--teal);
+    background: var(--teal-light);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.92rem;
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  .modal-body hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 28px 0;
+  }
+
+  .modal-body p {
+    font-size: 0.96rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 14px;
+    text-align: justify;
+  }
+
+  .modal-body strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .modal-body ul {
+    list-style: none;
+    margin: 8px 0 14px 0;
+  }
+
+  .modal-body ul li {
+    font-size: 0.96rem;
+    color: var(--muted);
+    line-height: 1.75;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .modal-body ul li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+  }
+
+  @media (max-width: 640px) {
+    .modal-overlay { padding: 24px 16px; }
+    .modal-box { padding: 36px 24px; }
+    .modal-body h1 { font-size: 1.25rem; }
+  }
+
   /* ── PRINT ── */
   @media print {
     body { background: var(--paper); }
@@ -928,27 +1095,28 @@
       <h2>Read how I think through this.</h2>
       <!-- <p class="sub">The best way to evaluate someone is to see how they think through a problem.</p> -->
       <div class="article-list">
-        <a class="article-item" href="#">
+        <a class="article-item" href="#" data-modal="modal-article1" data-src="assets/article1.md" data-meta="Point of View" data-date="April 2025">
           <div>
-            <div class="article-title">Why your Power BI numbers don't match your ERP</div>
+            <!-- <div class="article-title">Why your Power BI numbers don't match your ERP</div> -->
+            <div class="article-title">Your Dashboard Isn't The Problem. Your Reporting System Is.</div>
             <div class="article-meta">Point of View</div>
           </div>
           <span class="article-arrow">→</span>
         </a>
-        <a class="article-item" href="#">
+        <a class="article-item" href="#" data-modal="modal-article2" data-src="assets/article2.md" data-meta="Process" data-date="April 2025">
           <div>
-            <div class="article-title">What I actually look at before I trust a reporting system</div>
+            <div class="article-title">How I Approach BI Architecture</div>
             <div class="article-meta">Process</div>
           </div>
           <span class="article-arrow">→</span>
         </a>
-        <a class="article-item" href="#">
+        <!-- <a class="article-item" href="#">
           <div>
             <div class="article-title">How a North Vancouver retailer stopped reconciling numbers before every leadership meeting</div>
             <div class="article-meta">Case Study</div>
           </div>
           <span class="article-arrow">→</span>
-        </a>
+        </a> -->
       </div>
     </div>
   </section>
@@ -969,32 +1137,17 @@
   </section>
 
 </div>
-<script>
-  const sections = [
-    { id: 'problem',    link: document.querySelector('.top-nav-link[href="#problem"]') },
-    { id: 'engagement', link: document.querySelector('.top-nav-link[href="#engagement"]') },
-    { id: 'outcome',    link: document.querySelector('.top-nav-link[href="#outcome"]') },
-    { id: 'contact',    link: document.querySelector('.top-nav-link[href="#contact"]') },
-  ];
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const match = sections.find(s => s.id === entry.target.id);
-      if (!match) return;
-      if (entry.isIntersecting) {
-        document.querySelectorAll('.top-nav-link').forEach(a => a.classList.remove('active'));
-        match.link && match.link.classList.add('active');
-      }
-    });
-  }, {
-    rootMargin: '-20% 0px -70% 0px',
-    threshold: 0,
-  });
+<!-- ARTICLE MODAL SHELL -->
+<div class="modal-overlay" id="article-modal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <div id="modal-progress"></div>
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-meta" id="modal-meta"></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
 
-  sections.forEach(({ id }) => {
-    const el = document.getElementById(id);
-    if (el) observer.observe(el);
-  });
-</script>
+<script src="main.js" defer></script>
 </body>
 </html>
