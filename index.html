@@ -4,8 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PSP Labs</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230f0e0c'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='20' font-weight='700' fill='%231a7a6e'>P</text></svg>">
+<meta name="robots" content="index, follow">
+<meta name="description" content="PSP Labs fixes the reporting foundation underneath your dashboards. Fixed scope. Two phases. No surprises.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://labs.pspverse.com/">
+<meta property="og:title" content="PSP Labs">
+<meta property="og:description" content="Your leadership team shouldn't have to debate which number is right before every decision. PSP Labs fixes the reporting system underneath your dashboards.">
+<meta property="og:image" content="https://labs.pspverse.com/og-image.png">
+<!-- Twitter / X Card (also used by WhatsApp as fallback) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PSP Labs">
+<meta name="twitter:description" content="Your leadership team shouldn't have to debate which number is right before every decision. PSP Labs fixes the reporting system underneath your dashboards.">
+<meta name="twitter:image" content="https://labs.pspverse.com/og-image.png">
+<link rel="icon" type="image/png" href="assets/PSP Labs Black.png">
+<link rel="apple-touch-icon" href="assets/PSP Labs Black.png">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KTH1JT5PV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KTH1JT5PV9');
+</script>
+<!-- -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=Editorial+New:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -652,7 +674,22 @@
     height: 52px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    gap: 32px;
+    justify-content: space-between;
+  }
+
+  .top-nav-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  .top-nav-logo img {
+    height: 32px;
+    width: 32px;
+    object-fit: cover;
+    border-radius: 7px;
   }
 
   .top-nav-wordmark,
@@ -666,8 +703,7 @@
   }
 
   .top-nav-wordmark {
-    font-weight: 500;
-    color: var(--ink);
+    display: none;
   }
 
   .top-nav-link {
@@ -712,7 +748,7 @@
   }
 
   @media (max-width: 640px) {
-    .top-nav { padding: 0 28px; justify-content: space-between; }
+    .top-nav { padding: 0 28px; gap: 16px; }
     .top-nav-link { display: none; }
   }
 
@@ -720,6 +756,9 @@
 </head>
 <body>
 <nav class="top-nav">
+  <a class="top-nav-logo" href="#">
+    <img src="assets/PSP Labs Black.png" alt="PSP Labs">
+  </a>
   <a class="top-nav-wordmark" href="#">PSP Labs</a>
   <a class="top-nav-link" href="#problem">Problem</a>
   <a class="top-nav-link" href="#engagement">Engagement</a>
@@ -752,7 +791,7 @@
       <div class="section-label">The Problem</div>
       <h2>You have data. You don't trust it.</h2>
       <p>
-        The same KPI shows diofferent values in different reports. Every leadership meeting starts with someone reconciling numbers before anything else gets discussed. 
+        The same KPI shows different values in different reports. Every leadership meeting starts with someone reconciling numbers before anything else gets discussed. 
         Sometimes the ERP says one thing, the Power BI dashboard says another, and someone pulls out an Excel sheet to settle it. Decisions slow down. Or worse, they get made on the wrong data.
       </p>
       <div class="root-cause">
