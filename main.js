@@ -91,7 +91,9 @@ function parseMd(text) {
 }
 
 function inline(text) {
-  return esc(text).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  return esc(text)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
 }
 
 function esc(s) {
